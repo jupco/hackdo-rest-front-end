@@ -1,0 +1,39 @@
+.App {
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 120px;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.grid-example {
+  border: 1px solid #eee;
+  margin: 7px 0;
+  text-align: center;
+  line-height: 50px;
+  font-size: 28px;
+  background-color: tomato;
+  color: #fff;
+  padding: 0;
+}
+
+.section-form {
+  padding: 5px;
+  margin: 5px
+}
