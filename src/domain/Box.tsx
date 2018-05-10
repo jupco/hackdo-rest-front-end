@@ -10,4 +10,23 @@ class Box {
     this.height = height
     this.weight = weight
   }
+
+  public setLength(n: number){
+    this.length = n
+    return this
+  }
+  public setWidth(n: number){
+    this.width = n
+    return this
+  }
+  public setHeight(n: number){
+    this.height = n
+    return this
+  }
+  public setWeight(n: number){
+    this.weight = n
+    return this
+  }
 }
+
+export default Box
