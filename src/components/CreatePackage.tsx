@@ -53,6 +53,7 @@ class CreatePackage extends React.Component<{}, {
       .then(res => {
         console.log(res);
         console.log(res.data);
+        notify.show(`Packacke created succesfully with id: ${res.data.id}`)
       })
       .catch(reason => {
         if (reason.response) {
