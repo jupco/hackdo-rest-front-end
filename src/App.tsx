@@ -6,6 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CreatePackage from './components/CreatePackage'
 import Home from './components/Home';
+import ShowAllPackagesInformation from './components/ShowAllPacakgesInformation'
 import BaseTheme from './Theme';
 
 class App extends React.Component {
@@ -20,7 +21,8 @@ class App extends React.Component {
             <Router>
               <Switch>
                 <Route exact={true} path="/" component={Home} />
-                <Route exact={true} path="/createPackage" component={CreatePackage} />
+                <Route exact={true} path="/package" component={CreatePackage} />
+                <Route path="/packages/:status" component={ShowAllPackagesInformation} />
               </Switch>
             </Router>
 

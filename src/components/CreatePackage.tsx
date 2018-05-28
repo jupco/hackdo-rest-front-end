@@ -7,7 +7,6 @@ import Row from 'react-materialize/lib/Row'
 import Notifications, { notify } from 'react-notify-toast';
 import Address from '../domain/Address'
 import Box from '../domain/Box'
-import Package from '../domain/Package'
 import ServiceError from '../domain/ServiceError'
 import User from '../domain/User'
 
@@ -23,14 +22,6 @@ class CreatePackage extends React.Component<{}, {
     this.onSubmitHandler = this.onSubmitHandler.bind(this)
     // Owner events binding
     this.handleUserIdChange = this.handleUserIdChange.bind(this)
-    this.handleNameChange = this.handleNameChange.bind(this)
-    this.handleLastNameChange = this.handleLastNameChange.bind(this)
-    this.handleTelephoneChange = this.handleTelephoneChange.bind(this)
-    // Owner's Address events binding
-    this.handlePrimarySegment = this.handlePrimarySegment.bind(this)
-    this.handleFirstField = this.handleFirstField.bind(this)
-    this.handleSecondarySegment = this.handleSecondarySegment.bind(this)
-    this.handleSecondField = this.handleSecondField.bind(this)
     // Box events binding
     this.handleLenght = this.handleLenght.bind(this)
     this.handleWidth = this.handleWidth.bind(this)
@@ -47,7 +38,7 @@ class CreatePackage extends React.Component<{}, {
   }
 
   public onSubmitHandler(e) {
-    const p = new Package(this.state.owner, this.state.box, this.state.status)
+    const p = { ownerId: this.state.owner.id, box: this.state.box, status: this.state.status }
 
     axios.post(`http://localhost:8080/package`, p)
       .then(res => {
@@ -70,18 +61,6 @@ class CreatePackage extends React.Component<{}, {
   // User status change handlers
   public handleUserIdChange(e) {
     this.setState({ owner: this.state.owner.setId(e.target.value) })
-  }
-
-  public handleNameChange(e) {
-    this.setState({ owner: this.state.owner.setName(e.target.value) })
-  }
-
-  public handleLastNameChange(e) {
-    this.setState({ owner: this.state.owner.setLastName(e.target.value) })
-  }
-
-  public handleTelephoneChange(e) {
-    this.setState({ owner: this.state.owner.setTelephone(e.target.value) })
   }
 
   // Address status change handlers
@@ -132,27 +111,7 @@ class CreatePackage extends React.Component<{}, {
         <div className="section-form">
           <h5>Owner</h5>
           <Row>
-            <Input type="text" label="User Id" s={3} onChange={this.handleUserIdChange} />
-            <Input type="text" label="Name" s={3} onChange={this.handleNameChange} />
-            <Input type="text" label="Last Name" s={3} onChange={this.handleLastNameChange} />
-            <Input type="text" label="Telephone" s={3} onChange={this.handleTelephoneChange} />
-          </Row>
-        </div>
-        <div className="section-form">
-          <h5>Owner's Address</h5>
-          <Row>
-            <Input s={3} type='select' label="Primary Segment" defaultValue='none' onChange={this.handlePrimarySegment}>
-              <option value='none' />
-              <option value='street'>Street</option>
-              <option value='avenue'>Avenue</option>
-            </Input>
-            <Input type="text" label="First Field" s={3} onChange={this.handleFirstField} />
-            <Input s={3} type='select' label="Secondary Segment" defaultValue='none' onChange={this.handleSecondarySegment}>
-              <option value='none' />
-              <option value='street'>Street</option>
-              <option value='avenue'>Avenue</option>
-            </Input>
-            <Input type="text" label="Second Field" s={3} onChange={this.handleSecondField} />
+            <Input type="text" label="User Id" s={6} onChange={this.handleUserIdChange} />
           </Row>
         </div>
         <div className="section-form">

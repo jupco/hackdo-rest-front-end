@@ -12,7 +12,7 @@ class Home extends React.Component {
         Useful links:
           <ul>
           <li><Link to="/">Home (this page)</Link></li>
-          <li><Link to="/createPackage">Create a Package</Link></li>
+          <li><Link to="/package">Create a Package</Link></li>
         </ul>
       </div>
     )

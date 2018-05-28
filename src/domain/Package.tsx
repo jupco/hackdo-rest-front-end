@@ -3,6 +3,7 @@ import User from './User'
 
 class Package {
 
+  public id?: string;
   public owner: User;
   public box: Box;
   public status: string;
@@ -13,6 +14,10 @@ class Package {
     this.status = status
   }
 
+  public setId(id: string) {
+    this.id = id
+    return this
+  }
 
   public setOwner(u: User) {
     this.owner = u

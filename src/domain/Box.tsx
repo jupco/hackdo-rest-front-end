@@ -3,6 +3,7 @@ class Box {
   public width: number;
   public height: number;
   public weight: number;
+  public volume?: number;
 
   constructor(lenght: number, width: number, height: number, weight: number) {
     this.length = lenght
