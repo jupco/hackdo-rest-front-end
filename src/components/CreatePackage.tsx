@@ -63,24 +63,6 @@ class CreatePackage extends React.Component<{}, {
     this.setState({ owner: this.state.owner.setId(e.target.value) })
   }
 
-  // Address status change handlers
-
-  public handlePrimarySegment(e) {
-    this.setState({ owner: this.state.owner.setAddress(this.state.owner.address.setPrimarySegmentType(e.target.value)) })
-  }
-
-  public handleFirstField(e) {
-    this.setState({ owner: this.state.owner.setAddress(this.state.owner.address.setFirstField(e.target.value)) })
-  }
-
-  public handleSecondarySegment(e) {
-    this.setState({ owner: this.state.owner.setAddress(this.state.owner.address.setSecondarySegmentType(e.target.value)) })
-  }
-
-  public handleSecondField(e) {
-    this.setState({ owner: this.state.owner.setAddress(this.state.owner.address.setSecondField(e.target.value)) })
-  }
-
   // Box change handlers
   public handleLenght(e) {
     this.setState({ box: this.state.box.setLength(e.target.value) })
@@ -97,8 +79,7 @@ class CreatePackage extends React.Component<{}, {
   public handleWeight(e) {
     this.setState({ box: this.state.box.setWeight(e.target.value) })
   }
-
-  // TODO: Fix the bug
+  
   // Status handler
   public handleStatusChange(e) {
     this.setState({ status: e.target.value })
@@ -125,14 +106,15 @@ class CreatePackage extends React.Component<{}, {
         </div>
         <div className="section-form">
           <h5>Status</h5>
-          <div onChange={this.handleStatusChange} id='radio-group-status'>
-            <Row>
-              <Input s={3} name='packageStatus' type='radio' value='transit' label='Transit' checked={this.state.status === 'transit'} />
-              <Input s={3} name='packageStatus' type='radio' value='review' label='Review' checked={this.state.status === 'review'} />
-              <Input s={3} name='packageStatus' type='radio' value='received' label='Received' checked={this.state.status === 'received'} />
-              <Input s={3} name='packageStatus' type='radio' value='delivered' label='Delivered' checked={this.state.status === 'delivered'} />
-            </Row>
-          </div>
+          <Row>
+            <Input s={3} type='select' label="Status" defaultValue='none' onChange={this.handleStatusChange}>
+              <option value='none' />
+              <option value='received'>Received</option>
+              <option value='review'>Review</option>
+              <option value='transit'>In Transit</option>
+              <option value='delivered'>Delivered</option>
+            </Input>
+          </Row>
         </div>
         <Row>
           <Col s={3} offset="s9"><RaisedButton label="Create Package" fullWidth={true} onClick={this.onSubmitHandler} /></Col>
