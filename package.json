@@ -7,7 +7,7 @@
     "@types/materialize-css": "^1.0.2",
     "@types/query-string": "^5.1.0",
     "@types/react-router": "^4.0.24",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "material-ui": "^0.20.0",
     "query-string": "^6.1.0",
     "react": "^16.3.2",
