@@ -16,7 +16,7 @@
     "react-notify-toast": "^0.4.0",
     "react-pure-grid": "^2.1.1",
     "react-router-dom": "^4.2.2",
-    "react-scripts-ts": "2.15.1"
+    "react-scripts-ts": "4.0.8"
   },
   "scripts": {
     "start": "react-scripts-ts start",
